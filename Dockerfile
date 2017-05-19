@@ -5,11 +5,11 @@ FROM nginx:1.11.10
 RUN usermod -u 1000 www-data
 
 # Copy Src Code
-COPY ./public /var/www/public
+COPY ./public /usr/share/nginx/html
 
 # Files Permissions
-RUN cd /var/www &&\
-	chown root:www-data public -R
+RUN cd /usr/share/nginx &&\
+	chown root:www-data html -R
 
 CMD ["nginx", "-g", "daemon off;"]
 
